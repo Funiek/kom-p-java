@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<a href="product/productForm">Click here...</a>
+<a href="product">Click here...</a>
 </body>
 </html>
