@@ -14,7 +14,7 @@
 
 <body>
 <h2>Student Information</h2>
-<form:form method = "POST" action = "/kom_p_java_war_exploded/addProduct">
+<form:form method = "POST" action = "/kom_p_java_war_exploded/product">
     <table>
         <tr>
             <td><form:label path = "id">id</form:label></td>
