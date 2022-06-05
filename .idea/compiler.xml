@@ -7,8 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="KOM-P" />
+        <module name="kom-p-java" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="kom-p-java" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

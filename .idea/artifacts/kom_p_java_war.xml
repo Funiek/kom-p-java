@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kom-p-java:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>kom-p-java</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="KOM-P.war">
+      <element id="artifact" artifact-name="kom-p-java:war exploded" />
+    </root>
+  </artifact>
+</component>
