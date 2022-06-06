@@ -12,6 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.interceptor.Interceptor;
 import javax.interceptor.Interceptors;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 
 @Controller
@@ -26,9 +34,8 @@ ProductController {
 
     @Interceptors(ObjectActionInterceptor.class)
     @PostMapping
-    public String product(@ModelAttribute("product") Product product)
+    public String product(@ModelAttribute("product") Product product) throws NamingException, SQLException
     {
-
         return "submit";
     }
 }
