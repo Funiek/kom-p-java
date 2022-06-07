@@ -9,7 +9,7 @@ public class JpaFactory {
     private EntityManagerFactory emf;
 
     private JpaFactory() {
-        emf = Persistence.createEntityManagerFactory("PU");
+        emf = Persistence.createEntityManagerFactory("KompDB");
     }
 
     public static JpaFactory getInstanance() {

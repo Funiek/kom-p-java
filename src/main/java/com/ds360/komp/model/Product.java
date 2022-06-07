@@ -1,23 +1,24 @@
 package com.ds360.komp.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @ToString
+@Table
 @Entity
 public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "product_id")
-    private int productId;
+    private Long productId;
     @Basic
     @Column(name = "title")
     private String title;
@@ -48,13 +49,4 @@ public class Product {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = productId;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (sku != null ? sku.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (visible ? 1 : 0);
-        return result;
-    }
 }
