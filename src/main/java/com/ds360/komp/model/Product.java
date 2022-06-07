@@ -1,4 +1,4 @@
-package com.ds360.komp.models;
+package com.ds360.komp.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
