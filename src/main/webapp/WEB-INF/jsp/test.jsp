@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <sql:query var="rs" dataSource="jdbc/KompDB">
-    select id, foo, bar from testdata
+    select product_id, title from product
 </sql:query>
 
 <html>
@@ -22,8 +22,8 @@
 <h2>Results</h2>
 
 <c:forEach var="row" items="${rs.rows}">
-    Foo ${row.foo}<br/>
-    Bar ${row.bar}<br/>
+    Foo ${row.product_id}<br/>
+    Bar ${row.title}<br/>
 </c:forEach>
 
 </body>

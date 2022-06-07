@@ -19,7 +19,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="PU" />
+          <factory-entry name="PU" value="949ea692-11c7-4ca2-8a03-52c26dc6dec0" />
           <factory-entry name="default" />
           <factory-entry name="noname-a.xml@0" value="7a35b5e2-3871-4eb9-930a-a6b41735cc71" />
         </datasource-mapping>
@@ -90,8 +90,11 @@
     <orderEntry type="library" name="Maven: jakarta.persistence:jakarta.persistence-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.platform:jakarta.jakartaee-api:8.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:10.0.20" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:2.1.212" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.29" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.19.4" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.3.20" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.32" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.3.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.5.0" level="project" />
   </component>
 </module>
