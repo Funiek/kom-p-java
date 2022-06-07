@@ -1,8 +1,10 @@
 package com.ds360.komp.controller;
 
-import com.ds360.komp.dao.ProductDao;
-import com.ds360.komp.dao.ProductDaoJpaImpl;
 import com.ds360.komp.model.Product;
+import com.ds360.komp.repository.ProductRepository;
+import com.ds360.komp.service.ProductService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,13 +20,15 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/product")
+@RequiredArgsConstructor
 public class
 ProductController {
+    final ProductRepository productRepository;
+
     @GetMapping
     public ModelAndView product()
     {
-        ProductDao productDao = new ProductDaoJpaImpl();
-        List<Product> productList = productDao.findAll();
+        List<Product> productList = productRepository.findAll();
 
         return new ModelAndView("product","productList", productList);
     }
