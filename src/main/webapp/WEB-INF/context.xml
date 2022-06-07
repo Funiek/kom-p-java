@@ -1,8 +1,0 @@
-<Context>
-
-    <ResourceLink name="jdbc/KompDB"
-                  global="jdbc/KompDB"
-                  type="javax.sql.DataSource"
-    />
-
-</Context>

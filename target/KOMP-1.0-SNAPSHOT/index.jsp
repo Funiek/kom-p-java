@@ -15,5 +15,6 @@
 <body>
 <h2>AAAA</h2>
 <a class="product-special-price" href="product">Click here...</a>
+<a class="product-special-price" href="test">Click here...</a>
 </body>
 </html>
