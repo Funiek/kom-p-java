@@ -19,9 +19,10 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="KompDB" />
+          <factory-entry name="KompDB" value="8ef73c0a-f835-4ee6-8e43-e04e38a3d5dc" />
           <factory-entry name="PU" value="949ea692-11c7-4ca2-8a03-52c26dc6dec0" />
           <factory-entry name="default" />
+          <factory-entry name="entityManagerFactory" />
           <factory-entry name="noname-a.xml@0" value="7a35b5e2-3871-4eb9-930a-a6b41735cc71" />
         </datasource-mapping>
         <naming-strategy-map />
@@ -32,6 +33,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/sprint-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ds360/config/WebMvcConfig.java</file>
         </fileset>
       </configuration>
     </facet>

@@ -1,10 +1,8 @@
 package com.ds360.komp.controller;
 
 import com.ds360.komp.model.Product;
-import com.ds360.komp.repository.ProductRepository;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,12 +21,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class
 ProductController {
-    final ProductRepository productRepository;
+    final ProductService productService;
 
     @GetMapping
     public ModelAndView product()
     {
-        List<Product> productList = productRepository.findAll();
+        List<Product> productList = productService.listAll();
 
         return new ModelAndView("product","productList", productList);
     }

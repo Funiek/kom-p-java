@@ -2,7 +2,6 @@ package com.ds360.komp.service;
 
 import com.ds360.komp.model.Product;
 import com.ds360.komp.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,8 +10,12 @@ import java.util.List;
 @Service
 @Transactional
 public class ProductService {
-    @Autowired
+    final
     ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public void save(Product product) {
         productRepository.save(product);
