@@ -4,6 +4,7 @@ import com.ds360.komp.model.Product;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +22,7 @@ ProductController {
     final ProductService productService;
 
     @GetMapping
+    @Transactional
     public ModelAndView product()
     {
         List<Product> productList = productService.listAll();

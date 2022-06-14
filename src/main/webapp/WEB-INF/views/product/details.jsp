@@ -19,16 +19,18 @@
         <div class="product-details-wrapper">
             <input data-val="true" data-val-required="The ProductId field is required." id="product_ProductId"
                    name="product.ProductId" type="hidden" value="2">
-            <div class="product-image-details"><img src="/resources/img/Products/INTEL-I7-10700K.jpg" alt="Zdjęcie"
-                                                    class="product-image-full"></div>
+            <div class="product-image-details">
+                <img src="/resources/img/Products/INTEL-I7-10700K.jpg" alt="Zdjęcie" class="product-image-full">
+            </div>
             <div class="product-desc">
                 <p>Nazwa produktu: Intel I7 10700k</p>
                 <p class="SKU">SKU: INTEL-I7-10700K</p>
                 <p>Data wydania: 23.03.2017</p>
                 <p>Cena: 1399,99&nbsp;PLN</p>
-                <p style="font-size:30px; padding:0;" class="product-special-price">Cena promocyjna: 99,99&nbsp; PLN</p>
-                <p>Ilość <input type="number" step="1" min="1" value="1" data-val="true"
-                                data-val-required="The qty field is required." id="qty" name="qty"></p>
+                <p style="font-size:30px; padding:0;" class="product-special-price">Cena promocyjna: 99,99&nbsp;PLN</p>
+                <p>Ilość
+                    <input type="number" step="1" min="1" value="1" data-val="true" data-val-required="The qty field is required." id="qty" name="qty">
+                </p>
                 <button class="btn add-to-cart-btn effect01">Dodaj do koszyka</button>
             </div>
             <div style="clear:both;"></div>

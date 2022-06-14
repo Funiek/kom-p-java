@@ -3,6 +3,8 @@ package com.ds360.komp.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,6 +36,9 @@ public class Order {
     @Basic
     @Column(name = "role")
     private String role;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,9 @@ public class Warehouse {
     @Basic
     @Column(name = "address")
     private String address;
+
+    @OneToMany(mappedBy = "warehouse")
+    private List<WarehouseProduct> warehouseProducts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

@@ -3,6 +3,8 @@ package com.ds360.komp.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-@Table
+@Table(name = "category")
 public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -19,6 +21,13 @@ public class Category {
     @Basic
     @Column(name = "title")
     private String title;
+
+    @OneToMany(
+            mappedBy = "category",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Product> productList = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

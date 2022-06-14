@@ -13,15 +13,16 @@ import javax.persistence.*;
 @Table(name = "order_product", schema = "public", catalog = "KompDB")
 public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "order_product_id")
-    private Long orderProductId;
-    @Basic
-    @Column(name = "order_id")
-    private Long orderId;
-    @Basic
-    @Column(name = "product_id")
-    private Long productId;
+    @EmbeddedId
+    private OrderProductKey orderProductId;
+    @ManyToOne
+    @MapsId("orderId")
+    @JoinColumn(name = "order_id")
+    private Order order;
+    @ManyToOne
+    @MapsId("productId")
+    @JoinColumn(name = "product_id")
+    private Product product;
     @Basic
     @Column(name = "qty")
     private short qty;
@@ -34,8 +35,8 @@ public class OrderProduct {
         OrderProduct that = (OrderProduct) o;
 
         if (orderProductId != that.orderProductId) return false;
-        if (orderId != that.orderId) return false;
-        if (productId != that.productId) return false;
+        if (order != that.order) return false;
+        if (product != that.product) return false;
         if (qty != that.qty) return false;
 
         return true;
