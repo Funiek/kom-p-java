@@ -10,9 +10,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Product List</title>
+    <title>Lista produktów</title>
 </head>
-<h3>Product List</h3>
+<h3>Lista produktów</h3>
 <body>
 <table border="1" cellpadding="4">
     <tr>

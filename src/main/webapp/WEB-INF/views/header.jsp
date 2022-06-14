@@ -10,32 +10,32 @@
     <div><a class="navbar-logo" href="/">KOM-P</a></div>
     <ul class="nav-wrapper float-left">
         <li>
-            <a href="/Categories/Index/5">Procesory</a>
+            <a href="/category/1">Procesory</a>
         </li>
         <li>
-            <a href="/Categories/Index/6">Karty Graficzne</a>
+            <a href="/category/2">Karty Graficzne</a>
         </li>
         <li>
-            <a href="/Categories/Index/7">Płyty Główne</a>
+            <a href="/category/3">Płyty Główne</a>
         </li>
         <li>
-            <a href="/Categories/Promo">PROMOCJE</a>
+            <a href="/category/4">PROMOCJE</a>
         </li>
     </ul>
     <ul class="nav-wrapper float-right">
         <li>
-            <a href="/Home/ChangeLanguage">PL</a>
+            <a href="#">PL</a>
         </li>
         <li>
-            <a href="/Cart">
+            <a href="/cart">
                 <i class="fas fa-shopping-cart"></i>&nbsp;
             </a>
         </li>
         <li>
-            <a href="/User/SignIn">Zaloguj się</a>
+            <a href="/account/signIn">Zaloguj się</a>
         </li>
         <li>
-            <a href="/User/SignUp">Zarejestruj się</a>
+            <a href="/account/signUp">Zarejestruj się</a>
         </li>
     </ul>
     <div class="clear"></div>

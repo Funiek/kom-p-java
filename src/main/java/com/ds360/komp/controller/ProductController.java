@@ -4,10 +4,7 @@ import com.ds360.komp.model.Product;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -28,7 +25,12 @@ ProductController {
     {
         List<Product> productList = productService.listAll();
 
-        return new ModelAndView("product","productList", productList);
+        return new ModelAndView("product/list","productList", productList);
+    }
+
+    @GetMapping("/{id}")
+    public String details(@PathVariable String id) {
+        return "product/details";
     }
 
     @PostMapping
