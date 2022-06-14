@@ -15,13 +15,13 @@ public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "order_product_id")
-    private int orderProductId;
+    private Long orderProductId;
     @Basic
     @Column(name = "order_id")
-    private long orderId;
+    private Long orderId;
     @Basic
     @Column(name = "product_id")
-    private long productId;
+    private Long productId;
     @Basic
     @Column(name = "qty")
     private short qty;

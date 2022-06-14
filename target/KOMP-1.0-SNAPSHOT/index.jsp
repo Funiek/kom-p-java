@@ -20,7 +20,7 @@
 <a class="product-special-price" href="product">Click here...</a>
 <div class="body-container">
     <div class="banner">
-        <a href="#"><img src="<c:url value="/resources/img/WYSIWYG/index-banner.jpg"/>"  alt="Banner"/></a>
+        <a href="#"><img src="/resources/img/WYSIWYG/index-banner.jpg" alt="Baner"/>"  alt="Banner"/></a>
     </div>
 
     <div class="promo-list">

@@ -15,7 +15,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "order_id")
-    private int orderId;
+    private Long orderId;
     @Basic
     @Column(name = "login")
     private String login;
