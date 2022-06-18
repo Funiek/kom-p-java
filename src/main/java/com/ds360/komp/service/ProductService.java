@@ -41,8 +41,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public List<Product> list(int count) {
-        return productRepository.findAllProducts();
+    public List<Product> list(Long count) {
+        return productRepository.findRowsLimit(count);
     }
 
     public List<Product> listByCategory(Long id) {

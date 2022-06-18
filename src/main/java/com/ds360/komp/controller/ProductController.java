@@ -1,5 +1,6 @@
 package com.ds360.komp.controller;
 
+import com.ds360.komp.model.CartProduct;
 import com.ds360.komp.model.Product;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -37,14 +39,24 @@ ProductController {
 
         Product product = productService.get(Long.valueOf(id));
 
-        return new ModelAndView("product/details","product",product);
+        return new ModelAndView("product/details","cartProduct",new CartProduct(product,0));
     }
 
     @PostMapping
-    public String product(@ModelAttribute("product") Product product, HttpServletRequest request) throws NamingException, SQLException
+    public String product(@ModelAttribute("cartProduct") CartProduct cartProduct, HttpServletRequest request) throws NamingException, SQLException
     {
+        List<CartProduct> cart;
+
         HttpSession session = request.getSession();
-        session.setAttribute("product",product.getProductId());
+        Object attr = request.getSession().getAttribute("cart");
+        if(attr != null) cart = (List<CartProduct>) attr ;
+        else cart = new ArrayList<>();
+
+        Product product = productService.get(cartProduct.getProduct().getProductId());
+        cartProduct.setProduct(product);
+        cart.add(cartProduct);
+
+        session.setAttribute("cart",cart);
         return "redirect:/";
     }
 }
