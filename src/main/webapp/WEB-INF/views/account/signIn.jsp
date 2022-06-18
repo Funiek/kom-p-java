@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Krzysiek
@@ -18,37 +19,32 @@
     <div class="containter-custom">
         <h1 class="header">Logowanie</h1>
 
-        <form action="/User/SignIn" method="post">
+        <form:form action="signIn" method="post" modelAttribute="account">
             <div class="container">
-                <!--form class="form-horizontal" method="post"-->
                 <div class="form-group">
                     <div class="label-custom col-sm-12">
-
+                        <form:label path="login" class="control-label" for="Login">Login</form:label>
+                    </div>
+                    <div class="col-sm-3">
+                        <form:input path="login" class="form-control form-input-text-custome valid" type="text" maxlength="30" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="label-custom col-sm-12">
-                        <label class="control-label" for="Login">Login</label>
+                        <form:label path="password" class="control-label col-sm2" for="Password">Hasło</form:label>
                     </div>
                     <div class="col-sm-3">
-                        <input class="form-control form-input-text-custome valid" type="text" id="Login" maxlength="30" name="Login" value="">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="label-custom col-sm-12"><label class="control-label col-sm2" for="Password">Password</label></div>
-                    <div class="col-sm-3">
-                        <input type="password" class="form-control form-input-text-custome valid" id="Password" name="Password">
+                        <form:input path="password" type="password" class="form-control form-input-text-custome valid" />
                     </div>
                 </div>
                 <div class="form-group col-sm-12 form-submit-button-custom">
                     <div class=" col-sm-7">
-                        <button class="btn shop-btn effect01">Zatwierdź</button>
+                        <form:button class="btn shop-btn effect01">Zatwierdź</form:button>
                     </div>
-                    <div class=" col-sm-5"></div>
+                    <div class="col-sm-5"></div>
                 </div>
-                <!--form-->
             </div>
-        </form>
+        </form:form>
     </div>
 </div>
 <%@include file="../footer.jsp" %>

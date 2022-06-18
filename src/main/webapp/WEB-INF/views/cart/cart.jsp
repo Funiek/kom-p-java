@@ -39,7 +39,7 @@
             <div class="col-md-1 col-xs-1 cart-product-center"><a class="cart-product-anchor" href="/cart/delete/${cartProduct.product.productId}"><i class="fas fa-trash-alt"></i></a></div>
         </div>
         </c:forEach>
-        <a class="cart-checkout-btn" href="/Checkout/DescribeBuyer">
+        <a class="cart-checkout-btn" href="/checkout/describeBuyer">
             <div class="btn add-to-cart-btn effect01">Złóż zamówienie</div>
         </a>
         <div class="clear"></div>

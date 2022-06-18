@@ -44,12 +44,12 @@ ProductController {
     }
 
     @PostMapping
-    public String product(@ModelAttribute("cartProduct") CartProduct cartProduct, HttpServletRequest request) throws NamingException, SQLException
+    public String product(@ModelAttribute CartProduct cartProduct, HttpServletRequest request) throws NamingException, SQLException
     {
         List<CartProduct> cart;
 
         HttpSession session = request.getSession();
-        Object attr = request.getSession().getAttribute("cart");
+        Object attr = session.getAttribute("cart");
         if(attr != null) cart = (List<CartProduct>) attr ;
         else cart = new ArrayList<>();
 

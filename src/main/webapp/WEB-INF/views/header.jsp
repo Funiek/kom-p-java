@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.ds360.komp.model.CartProduct" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
   User: Krzysiek
   Date: 13.06.2022
@@ -24,19 +26,25 @@
     </ul>
     <ul class="nav-wrapper float-right">
         <li>
-            <a href="#">PL</a>
+            <a href="#">${sessionScope["accountLogin"]}</a>
         </li>
         <li>
             <a href="/cart">
                 <i class="fas fa-shopping-cart"></i>&nbsp;
             </a>
         </li>
+        <% if (session.getAttribute("logged")!="true") { %>
         <li>
             <a href="/account/signIn">Zaloguj się</a>
         </li>
         <li>
             <a href="/account/signUp">Zarejestruj się</a>
         </li>
+        <% } else { %>
+        <li>
+            <a href="/account/logout">Wyloguj</a>
+        </li>
+        <% } %>
     </ul>
     <div class="clear"></div>
 </div>

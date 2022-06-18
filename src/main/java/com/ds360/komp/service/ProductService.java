@@ -3,6 +3,7 @@ package com.ds360.komp.service;
 import com.ds360.config.JpaConfig;
 import com.ds360.komp.model.Product;
 import com.ds360.komp.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,14 +17,11 @@ import java.util.List;
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class ProductService {
 
     final
     ProductRepository productRepository;
-
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     public void save(Product product) {
         productRepository.save(product);
