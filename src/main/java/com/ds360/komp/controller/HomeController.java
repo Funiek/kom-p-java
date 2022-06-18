@@ -10,4 +10,8 @@ public class HomeController {
         return "../../index";
     }
 
+    @RequestMapping(value = "/session")
+    public String session() {
+        return "session";
+    }
 }

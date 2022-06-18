@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -39,8 +41,10 @@ ProductController {
     }
 
     @PostMapping
-    public String product(@ModelAttribute("product") Product product) throws NamingException, SQLException
+    public String product(@ModelAttribute("product") Product product, HttpServletRequest request) throws NamingException, SQLException
     {
+        HttpSession session = request.getSession();
+        session.setAttribute("product",product.getProductId());
         return "redirect:/";
     }
 }

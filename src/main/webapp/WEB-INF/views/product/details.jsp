@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <%@include file="../head.jsp" %>
@@ -14,10 +15,9 @@
 <body>
 <%@include file="../header.jsp" %>
 <div class="body-container">
-
-    <form action="/product" method="post" novalidate="novalidate">
+    <form:form action="/product" method="post" modelAttribute="product">
+        <form:input path="productId" type="hidden" value="${product.productId}"/>
         <div class="product-details-wrapper">
-            <input id="product_ProductId" name="product.ProductId" type="hidden" value="2">
             <div class="product-image-details">
                 <img src="/resources/img/Products/${product.sku}.jpg" alt="Zdjęcie" class="product-image-full">
             </div>
@@ -29,11 +29,11 @@
                 <p>Ilość
                     <input type="number" step="1" min="1" value="1" id="qty" name="qty">
                 </p>
-                <button class="btn add-to-cart-btn effect01">Dodaj do koszyka</button>
+                <form:button class="btn add-to-cart-btn effect01">Dodaj do koszyka</form:button>
             </div>
             <div style="clear:both;"></div>
         </div>
-    </form>
+    </form:form>
     <div>
         <div style="padding-left:20px;padding-right:20px;" class="float-left">
             <a class="btn add-to-cart-btn effect01" href="/category/${product.category.categoryId}">Wróć do kategorii</a>
