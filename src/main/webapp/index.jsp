@@ -45,7 +45,7 @@
                 <div class="col-xs-12 col-md-3 col-lg-3">
                     <div class="product">
                         <div class="product-img">
-                            <a href="/Products/Details/1016">
+                            <a href="/product/14">
                                 <img src="/resources/img/Products/INTEL-I7-12700K.jpg" alt="Zdjęcie" />
                             </a>
                         </div>
@@ -58,7 +58,7 @@
                 <div class="col-xs-12 col-md-3 col-lg-3">
                     <div class="product">
                         <div class="product-img">
-                            <a href="/Products/Details/1015"
+                            <a href="/product/12"
                             ><img src="/resources/img/Products/INTEL-I5-12400F.jpg" alt="Zdjęcie"
                             /></a>
                         </div>
@@ -71,7 +71,7 @@
                 <div class="col-xs-12 col-md-3 col-lg-3">
                     <div class="product">
                         <div class="product-img">
-                            <a href="/Products/Details/1014"
+                            <a href="/product/8"
                             ><img src="/resources/img/Products/GB-Z590-AORUS-ULTRA.jpg" alt="Zdjęcie"
                             /></a>
                         </div>
@@ -84,7 +84,7 @@
                 <div class="col-xs-12 col-md-3 col-lg-3">
                     <div class="product">
                         <div class="product-img">
-                            <a href="/Products/Details/1013"
+                            <a href="/product/7"
                             ><img src="/resources/img/Products/GB-RX-6500XT.jpg" alt="Zdjęcie"
                             /></a>
                         </div>

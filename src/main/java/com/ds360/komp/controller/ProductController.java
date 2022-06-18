@@ -31,13 +31,16 @@ ProductController {
     }
 
     @GetMapping("/{id}")
-    public String details(@PathVariable String id) {
-        return "product/details";
+    public ModelAndView details(@PathVariable String id) {
+
+        Product product = productService.get(Long.valueOf(id));
+
+        return new ModelAndView("product/details","product",product);
     }
 
     @PostMapping
     public String product(@ModelAttribute("product") Product product) throws NamingException, SQLException
     {
-        return "submit";
+        return "index";
     }
 }

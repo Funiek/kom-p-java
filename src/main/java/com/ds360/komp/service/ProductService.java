@@ -45,7 +45,7 @@ public class ProductService {
         String hql = "FROM product";
         Query query = session.createQuery(hql);
         query.setFirstResult(1);
-        query.setMaxResults(10);
+        query.setMaxResults(count);
         return (List<Product>) query.list();
     }
 
