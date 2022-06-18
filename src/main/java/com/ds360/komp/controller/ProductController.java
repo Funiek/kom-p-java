@@ -41,6 +41,6 @@ ProductController {
     @PostMapping
     public String product(@ModelAttribute("product") Product product) throws NamingException, SQLException
     {
-        return "index";
+        return "redirect:/";
     }
 }

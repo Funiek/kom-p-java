@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,12 +42,11 @@ public class ProductService {
     }
 
     public List<Product> list(int count) {
-        Session session = JpaConfig.getCurrentSessionFromConfig();
-        String hql = "FROM product";
-        Query query = session.createQuery(hql);
-        query.setFirstResult(1);
-        query.setMaxResults(count);
-        return (List<Product>) query.list();
+        return productRepository.findAllProducts();
+    }
+
+    public List<Product> listByCategory(Long id) {
+        return productRepository.findAllByCategory(id);
     }
 
 }

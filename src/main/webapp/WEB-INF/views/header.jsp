@@ -19,7 +19,7 @@
             <a href="/category/3">Płyty Główne</a>
         </li>
         <li>
-            <a href="/category/4">PROMOCJE</a>
+            <a href="/category/0">PROMOCJE</a>
         </li>
     </ul>
     <ul class="nav-wrapper float-right">

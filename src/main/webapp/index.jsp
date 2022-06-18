@@ -31,8 +31,6 @@
 <header>
     <%@include file="WEB-INF/views/header.jsp"%>
 </header>
-<h2>AAAA</h2>
-<a class="product-special-price" href="product">Click here...</a>
 <div class="body-container">
     <div class="banner">
         <a href="#"><img src="/resources/img/WYSIWYG/index-banner.jpg" alt="Baner"/></a>

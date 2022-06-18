@@ -10,7 +10,9 @@ import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.ds360.komp.repository"})
@@ -30,12 +32,5 @@ public class JpaConfig {
         transactionManager.setEntityManagerFactory(entityManagerFactory);
 
         return transactionManager;
-    }
-
-    public static Session getCurrentSessionFromConfig() {
-        org.hibernate.cfg.Configuration config = new org.hibernate.cfg.Configuration();
-        config.configure();
-        SessionFactory sessionFactory = config.buildSessionFactory();
-        return sessionFactory.getCurrentSession();
     }
 }
