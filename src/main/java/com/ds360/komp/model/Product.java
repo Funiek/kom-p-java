@@ -32,6 +32,9 @@ public class Product {
     @Basic
     @Column(name = "visible")
     private Boolean visible;
+    @Basic
+    @Column(name = "promo")
+    private Boolean promo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")

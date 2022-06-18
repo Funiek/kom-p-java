@@ -1,5 +1,7 @@
 package com.ds360.config;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -30,4 +32,10 @@ public class JpaConfig {
         return transactionManager;
     }
 
+    public static Session getCurrentSessionFromConfig() {
+        org.hibernate.cfg.Configuration config = new org.hibernate.cfg.Configuration();
+        config.configure();
+        SessionFactory sessionFactory = config.buildSessionFactory();
+        return sessionFactory.getCurrentSession();
+    }
 }

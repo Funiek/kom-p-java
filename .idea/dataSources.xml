@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="KompDB@localhost" uuid="8ef73c0a-f835-4ee6-8e43-e04e38a3d5dc">
+    <data-source source="LOCAL" name="KompDB@localhost" uuid="f8746832-9746-40f1-9fa2-5f442377239d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

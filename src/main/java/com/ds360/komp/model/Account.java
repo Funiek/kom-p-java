@@ -3,6 +3,8 @@ package com.ds360.komp.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "Account")
+@Table(name = "account")
 public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -34,6 +36,9 @@ public class Account {
     @Basic
     @Column(name = "role")
     private String role;
+
+    @OneToMany(mappedBy = "account")
+    private List<Order> orders = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
