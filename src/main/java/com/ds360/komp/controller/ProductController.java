@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Controller
@@ -51,6 +52,14 @@ ProductController {
         Object attr = request.getSession().getAttribute("cart");
         if(attr != null) cart = (List<CartProduct>) attr ;
         else cart = new ArrayList<>();
+
+        for(CartProduct product: cart) {
+            if(Objects.equals(product.getProduct().getProductId(), cartProduct.getProduct().getProductId())) {
+                product.setQty(product.getQty() + cartProduct.getQty());
+                session.setAttribute("cart",cart);
+                return "redirect:/";
+            }
+        }
 
         Product product = productService.get(cartProduct.getProduct().getProductId());
         cartProduct.setProduct(product);

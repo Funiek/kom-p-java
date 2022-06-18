@@ -27,7 +27,10 @@
         </div>
         <c:forEach items="${cart.cartProducts}" var="cartProduct">
         <div class="cart-product row">
-            <div class="col-md-1 col-xs-1"><img class="cart-img" src="/resources/img/Products/${cartProduct.product.sku}.jpg" alt="Zdjęcie">
+            <div class="col-md-1 col-xs-1">
+                <a href="/product/${cartProduct.product.productId}">
+                    <img class="cart-img" src="/resources/img/Products/${cartProduct.product.sku}.jpg" alt="Zdjęcie">
+                </a>
             </div>
             <div class="col-md-4 col-xs-4 cart-product-center">${cartProduct.product.title}</div>
             <div class="col-md-2 col-xs-2 cart-product-center">${cartProduct.product.price}</div>
