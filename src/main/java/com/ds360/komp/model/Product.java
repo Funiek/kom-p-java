@@ -1,16 +1,17 @@
 package com.ds360.komp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @ToString
 @Table
 @Entity
@@ -20,18 +21,33 @@ public class Product {
     @Column(name = "product_id")
     private Long productId;
     @Basic
-    @Column(name = "title")
-    private String title;
+    @Column(name = "price")
+    private BigDecimal price;
     @Basic
     @Column(name = "sku")
     private String sku;
     @Basic
-    @Column(name = "price")
-    private BigDecimal price;
+    @Column(name = "title")
+    private String title;
     @Basic
     @Column(name = "visible")
-    private boolean visible;
+    private Boolean visible;
+    @Basic
+    @Column(name = "promo")
+    private Boolean promo;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    @ToString.Exclude
+    private Category category;
+
+    @OneToMany(mappedBy = "product")
+    @ToString.Exclude
+    private List<WarehouseProduct> warehouseProducts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product")
+    @ToString.Exclude
+    private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
@@ -41,10 +57,11 @@ public class Product {
         Product product = (Product) o;
 
         if (productId != product.productId) return false;
-        if (visible != product.visible) return false;
-        if (title != null ? !title.equals(product.title) : product.title != null) return false;
-        if (sku != null ? !sku.equals(product.sku) : product.sku != null) return false;
         if (price != null ? !price.equals(product.price) : product.price != null) return false;
+        if (sku != null ? !sku.equals(product.sku) : product.sku != null) return false;
+        if (title != null ? !title.equals(product.title) : product.title != null) return false;
+        if (visible != null ? !visible.equals(product.visible) : product.visible != null) return false;
+        if (category != null ? !category.equals(product.category) : product.category != null) return false;
 
         return true;
     }
