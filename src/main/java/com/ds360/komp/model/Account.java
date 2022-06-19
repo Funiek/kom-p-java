@@ -38,7 +38,7 @@ public class Account {
     private String role;
 
     @OneToMany(mappedBy = "account")
-    private List<Order> orders = new ArrayList<>();
+    private List<PlacedOrder> placedOrders = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

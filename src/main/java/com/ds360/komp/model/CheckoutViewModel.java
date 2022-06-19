@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CheckoutViewModel {
-    Order order;
+    PlacedOrder order;
     List<CartProduct> cartProducts;
 }

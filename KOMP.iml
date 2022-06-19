@@ -19,7 +19,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="KompDB" value="f8746832-9746-40f1-9fa2-5f442377239d" />
+          <factory-entry name="KompDB" value="8121c52c-4e12-48d0-bd6d-22d1836a78d6" />
           <factory-entry name="PU" value="949ea692-11c7-4ca2-8a03-52c26dc6dec0" />
           <factory-entry name="default" />
           <factory-entry name="entityManagerFactory" />

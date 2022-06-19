@@ -18,7 +18,7 @@ public class OrderProduct {
     @ManyToOne
     @MapsId("orderId")
     @JoinColumn(name = "order_id")
-    private Order order;
+    private PlacedOrder placedOrder;
     @ManyToOne
     @MapsId("productId")
     @JoinColumn(name = "product_id")
@@ -35,7 +35,7 @@ public class OrderProduct {
         OrderProduct that = (OrderProduct) o;
 
         if (orderProductId != that.orderProductId) return false;
-        if (order != that.order) return false;
+        if (placedOrder != that.placedOrder) return false;
         if (product != that.product) return false;
         if (qty != that.qty) return false;
 

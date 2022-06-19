@@ -39,9 +39,15 @@
             <div class="col-md-1 col-xs-1 cart-product-center"><a class="cart-product-anchor" href="/cart/delete/${cartProduct.product.productId}"><i class="fas fa-trash-alt"></i></a></div>
         </div>
         </c:forEach>
+        <% if (session.getAttribute("logged")!="true") { %>
         <a class="cart-checkout-btn" href="/checkout/describeBuyer">
             <div class="btn add-to-cart-btn effect01">Złóż zamówienie</div>
         </a>
+        <% } else { %>
+        <a class="cart-checkout-btn" href="/checkout/details">
+            <div class="btn add-to-cart-btn effect01">Złóż zamówienie</div>
+        </a>
+        <% } %>
         <div class="clear"></div>
         <div class="cart-promo-code-wrapper">
             <form action="/Cart/ApplyPromo" method="get">

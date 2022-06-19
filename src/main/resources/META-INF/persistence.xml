@@ -9,7 +9,7 @@
         <class>com.ds360.komp.model.Product</class>
         <class>com.ds360.komp.model.Account</class>
         <class>com.ds360.komp.model.Category</class>
-        <class>com.ds360.komp.model.Order</class>
+        <class>com.ds360.komp.model.PlacedOrder</class>
         <class>com.ds360.komp.model.OrderProduct</class>
         <class>com.ds360.komp.model.Warehouse</class>
         <class>com.ds360.komp.model.WarehouseProduct</class>

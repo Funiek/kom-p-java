@@ -21,7 +21,7 @@
         <mapping class="com.ds360.komp.model.Product"/>
         <mapping class="com.ds360.komp.model.Category"/>
         <mapping class="com.ds360.komp.model.Account"/>
-        <mapping class="com.ds360.komp.model.Order"/>
+        <mapping class="com.ds360.komp.model.PlacedOrder"/>
         <mapping class="com.ds360.komp.model.OrderProduct"/>
         <mapping class="com.ds360.komp.model.Warehouse"/>
         <mapping class="com.ds360.komp.model.WarehouseProduct"/>

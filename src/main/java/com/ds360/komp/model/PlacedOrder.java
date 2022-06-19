@@ -14,8 +14,8 @@ import java.util.Objects;
 @Setter
 @ToString
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "placed_order")
+public class PlacedOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "order_id")
@@ -23,34 +23,46 @@ public class Order {
 
     @Basic
     @Column(name = "delivery")
-    private String delivery;
+    private String delivery = "Osobisty";
 
     @Basic
     @Column(name = "payment")
-    private String payment;
+    private String payment = "BLIK";
 
     @Basic
     @Column(name = "amount")
     private BigDecimal amount;
+
+    @Basic
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Basic
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Basic
+    @Column(name = "address")
+    private String address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     @ToString.Exclude
     private Account account;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "placedOrder")
     private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return orderId.equals(order.orderId) && delivery.equals(order.delivery) && payment.equals(order.payment) && amount.equals(order.amount) && Objects.equals(account, order.account) && Objects.equals(orderProductList, order.orderProductList);
+        PlacedOrder that = (PlacedOrder) o;
+        return orderId.equals(that.orderId) && delivery.equals(that.delivery) && payment.equals(that.payment) && amount.equals(that.amount) && firstName.equals(that.firstName) && lastName.equals(that.lastName) && address.equals(that.address) && account.equals(that.account) && Objects.equals(orderProductList, that.orderProductList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, delivery, payment, amount, account, orderProductList);
+        return Objects.hash(orderId, delivery, payment, amount, firstName, lastName, address, account, orderProductList);
     }
 }

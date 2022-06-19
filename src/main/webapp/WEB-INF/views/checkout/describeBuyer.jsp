@@ -32,7 +32,7 @@
         <div class="col-md-6 describe-buyer-right">
             <h2>Zaloguj się</h2>
 
-            <form:form action="/details" method="post" modelAttribute="account">
+            <form:form action="describeBuyer" method="post" modelAttribute="account">
                 <div class="container">
                     <div class="form-group">
                         <div class="label-custom col-sm-12"></div>
