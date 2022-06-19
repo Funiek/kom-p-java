@@ -12,41 +12,39 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
-@Table
+@ToString(onlyExplicitlyIncluded = true)
+@Table(name = "Product")
 @Entity
 public class Product {
+    @ToString.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "product_id")
+    @Column(name = "product_id", nullable = false)
     private Long productId;
-    @Basic
+    @ToString.Include
     @Column(name = "price")
     private BigDecimal price;
-    @Basic
+    @ToString.Include
     @Column(name = "sku")
     private String sku;
-    @Basic
+    @ToString.Include
     @Column(name = "title")
     private String title;
-    @Basic
+    @ToString.Include
     @Column(name = "visible")
     private Boolean visible;
-    @Basic
+    @ToString.Include
     @Column(name = "promo")
     private Boolean promo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "category_id")
-    @ToString.Exclude
     private Category category;
 
     @OneToMany(mappedBy = "product")
-    @ToString.Exclude
     private List<WarehouseProduct> warehouseProducts = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
-    @ToString.Exclude
     private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Override

@@ -10,22 +10,24 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "category")
 public class Category {
+    @ToString.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "category_id")
+    @Column(name = "category_id", nullable = false)
     private Long categoryId;
-    @Basic
+    @ToString.Include
     @Column(name = "title")
     private String title;
 
     @OneToMany(
             mappedBy = "category",
             cascade = CascadeType.ALL,
-            orphanRemoval = true
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
     )
     private List<Product> productList = new ArrayList<>();
 

@@ -10,13 +10,13 @@
 <html>
 <head>
     <%@include file="../head.jsp" %>
-    <title>Kategoria - Procesory</title>
+    <title>Kategoria - ${productList.get(0).category.title}</title>
 </head>
 <body>
 <%@include file="../header.jsp" %>
 <div class="body-container">
 
-    <h1 class="category-name">Procesory</h1>
+    <h1 class="category-name">${productList.get(0).category.title}</h1>
 
     <div class="promo-list">
         <div class="promo-list-title">Polecamy</div>

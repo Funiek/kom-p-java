@@ -23,10 +23,16 @@
         <li>
             <a href="/category/0">PROMOCJE</a>
         </li>
+
+        <% if (session.getAttribute("administrator")=="true" || session.getAttribute("moderator")=="true") { %>
+        <li>
+            <a href="/admin">Admin Panel</a>
+        </li>
+        <% } %>
     </ul>
     <ul class="nav-wrapper float-right">
         <li>
-            <a href="#">${sessionScope["accountLogin"]}</a>
+            <a href="/account/details">${sessionScope["accountLogin"]}</a>
         </li>
         <li>
             <a href="/cart">

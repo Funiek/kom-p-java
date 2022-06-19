@@ -5,57 +5,54 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "account")
 public class Account {
+    @ToString.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "account_id")
+    @Column(name = "account_id", nullable = false)
     private Long accountId;
-    @Basic
+    @ToString.Include
     @Column(name = "login")
     private String login;
-    @Basic
+    @ToString.Include
     @Column(name = "password")
     private String password;
-    @Basic
+    @ToString.Include
     @Column(name = "phone")
     private String phone;
-    @Basic
+    @ToString.Include
     @Column(name = "email")
     private String email;
-    @Basic
+    @ToString.Include
     @Column(name = "address")
     private String address;
-    @Basic
+    @ToString.Include
     @Column(name = "role")
     private String role;
 
-    @OneToMany(mappedBy = "account")
+
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
     private List<PlacedOrder> placedOrders = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Account account = (Account) o;
-
-        if (accountId != account.accountId) return false;
-        if (login != null ? !login.equals(account.login) : account.login != null) return false;
-        if (password != null ? !password.equals(account.password) : account.password != null) return false;
-        if (phone != null ? !phone.equals(account.phone) : account.phone != null) return false;
-        if (email != null ? !email.equals(account.email) : account.email != null) return false;
-        if (address != null ? !address.equals(account.address) : account.address != null) return false;
-        if (role != null ? !role.equals(account.role) : account.role != null) return false;
-
-        return true;
+        return accountId.equals(account.accountId) && login.equals(account.login) && password.equals(account.password) && phone.equals(account.phone) && email.equals(account.email) && address.equals(account.address) && role.equals(account.role) && Objects.equals(placedOrders, account.placedOrders);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountId, login, password, phone, email, address, role, placedOrders);
+    }
 }

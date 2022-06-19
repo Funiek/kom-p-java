@@ -64,7 +64,7 @@
                     <div class="col-xs-12 col-md-3 col-lg-3">
                         <div class="product">
                             <div class="product-img">
-                                <a href="/product/2"><img src="/resources/img/Products/${product.sku}.jpg" alt="Zdjęcie"></a>
+                                <a href="/product/${product.productId}"><img src="/resources/img/Products/${product.sku}.jpg" alt="Zdjęcie"></a>
                             </div>
                             <div class="product-title">
                                 ${product.sku}

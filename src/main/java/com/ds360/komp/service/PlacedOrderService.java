@@ -28,4 +28,8 @@ public class PlacedOrderService {
     public PlacedOrder findLast() {
         return placedOrderRepository.findLast();
     }
+
+    public List<PlacedOrder> findByAccount(Long account_id) {
+        return placedOrderRepository.findByAccount(account_id);
+    }
 }

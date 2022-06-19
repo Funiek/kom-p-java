@@ -12,6 +12,6 @@
 </head>
 <body>
 
-<p>Product: ${sessionScope['product']}</p>
+<p>Product: ${sessionScope['accountLogin']}</p>
 </body>
 </html>

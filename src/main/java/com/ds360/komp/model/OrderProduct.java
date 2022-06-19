@@ -8,10 +8,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "order_product", schema = "public", catalog = "KompDB")
 public class OrderProduct {
+    @ToString.Include
     @EmbeddedId
     private OrderProductKey orderProductId = new OrderProductKey();
     @ManyToOne
@@ -23,8 +24,8 @@ public class OrderProduct {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @Basic
-    @Column(name = "qty")
+    @ToString.Include
+    @Column(name = "qty", nullable = false)
     private short qty;
 
     @Override

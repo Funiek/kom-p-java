@@ -45,12 +45,13 @@ public class PlacedOrder {
     @Column(name = "address")
     private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id")
     @ToString.Exclude
     private Account account;
 
-    @OneToMany(mappedBy = "placedOrder")
+    @OneToMany(mappedBy = "placedOrder",
+            fetch = FetchType.EAGER)
     private List<OrderProduct> orderProductList = new ArrayList<>();
 
     @Override
