@@ -26,15 +26,6 @@ public class
 ProductController {
     final ProductService productService;
 
-    @GetMapping
-    @Transactional
-    public ModelAndView product()
-    {
-        List<Product> productList = productService.listAll();
-
-        return new ModelAndView("product/list","productList", productList);
-    }
-
     @GetMapping("/{id}")
     public ModelAndView details(@PathVariable String id) {
 

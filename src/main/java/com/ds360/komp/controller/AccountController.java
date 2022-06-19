@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,20 +105,33 @@ public class AccountController {
         Object attr = session.getAttribute("logged");
         if(attr != "true") return new ModelAndView("redirect:/");
 
-        Account account = accountService.get(Long.valueOf(session.getAttribute("accountId").toString()));
-        List<PlacedOrder> placedOrderList = placedOrderService.findByAccount(account.getAccountId());
+        Long account_id = Long.valueOf(session.getAttribute("accountId").toString());
+        List<PlacedOrder> placedOrderList = placedOrderService.findByAccount(account_id);
         PlacedOrder returnOrder = null;
+
+        List<OrderProduct> orderProductList = orderProductService.listAll();
+
+        List<OrderProduct> accountOrderProductList = new ArrayList<>();
+
+        for(OrderProduct orderProduct: orderProductList) {
+            for(PlacedOrder placedOrder: placedOrderList) {
+                if(placedOrder.getOrderId()==orderProduct.getPlacedOrder().getOrderId()) accountOrderProductList.add(orderProduct);
+            }
+        }
+
+
+        /*List<PlacedOrder> placedOrderList = placedOrderService.findByAccount(account.getAccountId());
+
 
         for(PlacedOrder placedOrder: placedOrderList) {
             placedOrder.setOrderProductList(null);
             if (Objects.equals(placedOrder.getOrderId(), Long.valueOf(id))) returnOrder = placedOrder;
 
         }
-        account.setPlacedOrders(null);
-
-        returnOrder = placedOrderService.get(Objects.requireNonNull(returnOrder).getOrderId());
+        account.setPlacedOrders(null);*/
 
 
-        return new ModelAndView("/account/order","order", returnOrder);
+
+        return new ModelAndView("/account/order","orderProductList", accountOrderProductList);
     }
 }

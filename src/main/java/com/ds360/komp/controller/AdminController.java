@@ -43,10 +43,6 @@ public class AdminController {
     @GetMapping("/accountList")
     @Transactional
     public ModelAndView accountList() {
-        Account account = accountService.getByLoginAndPassword("admin","admin");
-        account.setPlacedOrders(null);
-        List<Account> accountList = new ArrayList<>();
-        accountList.add(account);
-        return new ModelAndView("admin/accountList","accountList",accountList);
+        return new ModelAndView("admin/accountList","accountList",accountService.listAll());
     }
 }

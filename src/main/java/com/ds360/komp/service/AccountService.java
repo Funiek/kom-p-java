@@ -24,7 +24,6 @@ public class AccountService {
         return (List<Account>) accountRepository.findAll();
     }
 
-    @Transactional
     public Account get(Long id) {
         return accountRepository.findById(id).get();
     }

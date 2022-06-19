@@ -21,7 +21,7 @@
             <a href="/category/3">Płyty Główne</a>
         </li>
         <li>
-            <a href="/category/0">PROMOCJE</a>
+            <a href="/category/promocje">PROMOCJE</a>
         </li>
 
         <% if (session.getAttribute("administrator")=="true" || session.getAttribute("moderator")=="true") { %>

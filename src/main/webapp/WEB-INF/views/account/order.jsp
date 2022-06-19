@@ -29,7 +29,7 @@
 <body>
 <%@include file="../header.jsp" %>
 <div class="body-container">
-  <h1>Zamówienie - ${order.orderId}</h1>
+  <h1>Zamówienie - ${orderProductList.get(0).placedOrder.orderId}</h1>
   <hr>
   <table>
     <thead>
@@ -40,7 +40,7 @@
     </thead>
     <tbody>
 
-    <c:forEach items="${order.orderProductList}" var="item">
+    <c:forEach items="${orderProductList}" var="item">
       <tr>
         <th scope="row">${item.product.title}</th>
         <td>${item.qty}</td>

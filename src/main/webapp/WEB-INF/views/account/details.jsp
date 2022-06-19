@@ -45,8 +45,7 @@
     </dl>
     <div>Sprawdź swoje zamówienia</div>
     <c:forEach items="${account.placedOrders}" var="order">
-        <!--<div><a href="/account/order/${order.orderId}">${order.orderId} | ${order.amount} | ${order.payment} | ${order.delivery} | ${order.address}</a></div>-->
-        <div>${order.orderId} | ${order.amount} | ${order.payment} | ${order.delivery} | ${order.address}</div>
+        <div><a href="/account/order/${order.orderId}">${order.orderId} | ${order.amount} | ${order.payment} | ${order.delivery} | ${order.address}</a></div>
     </c:forEach>
 </div>
 <%@include file="../footer.jsp" %>

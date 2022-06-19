@@ -47,4 +47,8 @@ public class ProductService {
         return productRepository.findAllByCategory(id);
     }
 
+    public List<Product> listPromo() {
+        return productRepository.findPromo();
+    }
+
 }

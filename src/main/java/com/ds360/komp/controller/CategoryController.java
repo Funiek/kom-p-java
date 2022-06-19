@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(value = "/category")
@@ -21,7 +22,14 @@ public class CategoryController {
     @GetMapping("/{id}")
     @Transactional
     public ModelAndView category(@PathVariable String id) {
-        List<Product> productList = productService.listByCategory(Long.valueOf(id));
+        List<Product> productList = null;
+
+        if(Objects.equals(id, "promocje")) {
+            productList = productService.listPromo();
+        }
+        else productList = productService.listByCategory(Long.valueOf(id));
+
+
         return new ModelAndView("category/list","productList",productList);
     }
 }
