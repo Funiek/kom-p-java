@@ -92,6 +92,7 @@ public class CheckoutController {
             account = accountService.get(checkoutViewModel.getOrder().getAccount().getAccountId());
             order.setAccount(account);
         }
+        else order.setAccount(null);
 
         BigDecimal amount = BigDecimal.ZERO;
 
@@ -114,12 +115,6 @@ public class CheckoutController {
             orderProduct.setPlacedOrder(internalOrder);
             orderProduct.setProduct(cartProduct.getProduct());
             orderProduct.setQty((short) cartProduct.getQty());
-
-            OrderProductKey orderProductKey = new OrderProductKey();
-            orderProductKey.setOrderId(internalOrder.getOrderId());
-            orderProductKey.setProductId(cartProduct.getProduct().getProductId());
-
-            orderProduct.setOrderProductId(orderProductKey);
 
             orderProductRepository.save(orderProduct);
         }

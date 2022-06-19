@@ -25,6 +25,7 @@
         <mapping class="com.ds360.komp.model.OrderProduct"/>
         <mapping class="com.ds360.komp.model.Warehouse"/>
         <mapping class="com.ds360.komp.model.WarehouseProduct"/>
-
+        <mapping class="com.ds360.komp.model.OrderProductKey" />
+        <mapping class="com.ds360.komp.model.WarehouseProductKey" />
     </session-factory>
 </hibernate-configuration>

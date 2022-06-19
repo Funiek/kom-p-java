@@ -13,6 +13,8 @@
         <class>com.ds360.komp.model.OrderProduct</class>
         <class>com.ds360.komp.model.Warehouse</class>
         <class>com.ds360.komp.model.WarehouseProduct</class>
+        <class>com.ds360.komp.model.OrderProductKey</class>
+        <class>com.ds360.komp.model.WarehouseProductKey</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/KompDB"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>

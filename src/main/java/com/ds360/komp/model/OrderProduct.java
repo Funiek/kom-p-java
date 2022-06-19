@@ -12,9 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "order_product", schema = "public", catalog = "KompDB")
 public class OrderProduct {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
-    private OrderProductKey orderProductId;
+    private OrderProductKey orderProductId = new OrderProductKey();
     @ManyToOne
     @MapsId("orderId")
     @JoinColumn(name = "order_id")
@@ -23,6 +22,7 @@ public class OrderProduct {
     @MapsId("productId")
     @JoinColumn(name = "product_id")
     private Product product;
+
     @Basic
     @Column(name = "qty")
     private short qty;
