@@ -42,9 +42,6 @@
             </div>
         </div>
     </div>
-    <c:forEach items="${productList}" var="product">
-        ${product.sku}
-    </c:forEach>
 </div>
 <%@include file="../footer.jsp"%>
 </body>
