@@ -19,6 +19,6 @@ public class OrderProductService {
         return orderProductRepository.findByOrder(order_id);
     }
     public List<OrderProduct> listAll() {
-        return (List<OrderProduct>) orderProductRepository.findAll();
+        return orderProductRepository.findAll();
     }
 }

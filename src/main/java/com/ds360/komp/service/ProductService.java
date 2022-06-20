@@ -20,8 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
 
-    final
-    ProductRepository productRepository;
+    final ProductRepository productRepository;
 
     public void save(Product product) {
         productRepository.save(product);

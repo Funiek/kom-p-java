@@ -21,7 +21,7 @@ public class AccountService {
     }
 
     public List<Account> listAll() {
-        return (List<Account>) accountRepository.findAll();
+        return accountRepository.findAll();
     }
 
     public Account get(Long id) {
