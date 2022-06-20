@@ -41,8 +41,8 @@
                                 <img src="/resources/img/Products/INTEL-I7-12700K.jpg" alt="Zdjęcie" />
                             </a>
                         </div>
-                        <div class="product-title">Intel I5 12700k</div>
-                        <div class="product-price">2159,99&nbsp;PLN</div>
+                        <div class="product-title">Intel I7 12700k</div>
+                        <div style="text-decoration: none;" class="product-price">1499.99&nbsp;PLN</div>
 
                         <div class="product-special-price">&nbsp;</div>
                     </div>
@@ -55,7 +55,7 @@
                             /></a>
                         </div>
                         <div class="product-title">Intel I5 12400F</div>
-                        <div class="product-price">1299,99&nbsp;PLN</div>
+                        <div style="text-decoration: none;" class="product-price">699.99&nbsp;PLN</div>
 
                         <div class="product-special-price">&nbsp;</div>
                     </div>
@@ -68,7 +68,7 @@
                             /></a>
                         </div>
                         <div class="product-title">Gigabyte Z590 Aorus Ultra</div>
-                        <div class="product-price">899,99&nbsp;PLN</div>
+                        <div class="product-price">1199.99&nbsp;PLN</div>
 
                         <div class="product-special-price">99,99&nbsp;PLN</div>
                     </div>
@@ -81,7 +81,7 @@
                             /></a>
                         </div>
                         <div class="product-title">Gigabyte Radeon RX 6500XT</div>
-                        <div class="product-price">3599,99&nbsp;PLN</div>
+                        <div style="text-decoration: none;" class="product-price">1299.99&nbsp;PLN</div>
 
                         <div class="product-special-price">&nbsp;</div>
                     </div>
