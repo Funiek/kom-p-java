@@ -4,7 +4,7 @@
         <RollingFile
                 name="FileAppender"
                 fileName="komp-report.log"
-                filePattern="komp-report.%i.log"
+                filePattern="komp-report-%i.log"
                 ignoreExceptions="false"
                 append="true">
             <PatternLayout>
