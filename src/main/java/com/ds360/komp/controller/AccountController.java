@@ -74,7 +74,8 @@ public class AccountController {
         session.setAttribute("accountId",null);
         session.setAttribute("accountLogin",null);
         session.setAttribute("logged",null);
-        session.setAttribute("role",null);
+        session.setAttribute("administrator",null);
+        session.setAttribute("moderator",null);
 
         return "redirect:/";
     }
@@ -97,6 +98,7 @@ public class AccountController {
         return new ModelAndView("/account/details","account",account);
     }
 
+    //FIXME nie dziala
     @GetMapping("/order/{id}")
     @Transactional
     public ModelAndView details(@PathVariable String id, HttpServletRequest request){
@@ -107,7 +109,7 @@ public class AccountController {
 
         Long account_id = Long.valueOf(session.getAttribute("accountId").toString());
         List<PlacedOrder> placedOrderList = placedOrderService.findByAccount(account_id);
-        PlacedOrder returnOrder = null;
+
 
         List<OrderProduct> orderProductList = orderProductService.listAll();
 
@@ -118,17 +120,6 @@ public class AccountController {
                 if(placedOrder.getOrderId()==orderProduct.getPlacedOrder().getOrderId()) accountOrderProductList.add(orderProduct);
             }
         }
-
-
-        /*List<PlacedOrder> placedOrderList = placedOrderService.findByAccount(account.getAccountId());
-
-
-        for(PlacedOrder placedOrder: placedOrderList) {
-            placedOrder.setOrderProductList(null);
-            if (Objects.equals(placedOrder.getOrderId(), Long.valueOf(id))) returnOrder = placedOrder;
-
-        }
-        account.setPlacedOrders(null);*/
 
 
 
