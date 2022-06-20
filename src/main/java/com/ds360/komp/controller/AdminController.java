@@ -10,12 +10,11 @@ import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Controller
@@ -62,6 +61,36 @@ public class AdminController {
         productService.save(product);
         return "admin/index";
     }
+    @GetMapping("/productDelete/{id}")
+    @Transactional
+    public ModelAndView productDelete(@PathVariable String id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if ((session.getAttribute("administrator")=="true" || session.getAttribute("moderator")=="true")&&productService.get(Long.valueOf(id)).getOrderProductList().isEmpty()) {
+            productService.delete(Long.valueOf(id));
+        }
+        return new ModelAndView("redirect:/admin/productList");
+    }
+
+    @GetMapping("/productEdit/{id}")
+    @Transactional
+    public ModelAndView productEdit(@PathVariable String id) {
+        return new ModelAndView("admin/productEdit","product",productService.get(Long.valueOf(id)));
+    }
+
+    @PostMapping("/productEdit")
+    @Transactional
+    public ModelAndView productEdit(@ModelAttribute Product product) {
+        Product oldProduct = productService.get(product.getProductId());
+        product.setWarehouseProducts(null);
+        product.setOrderProductList(oldProduct.getOrderProductList());
+
+        Optional<Category> category = categoryRepository.findById(product.getCategory().getCategoryId());
+        category.ifPresent(product::setCategory);
+
+
+        productService.save(product);
+        return productList();
+    }
 
     @GetMapping("/accountList")
     @Transactional
@@ -82,4 +111,6 @@ public class AdminController {
         accountService.save(account);
         return "admin/index";
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.ds360.komp.repository;
 
 import com.ds360.komp.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT e FROM Product e WHERE e.promo = true AND e.visible = true ")
     List<Product> findPromo();
+    @Modifying
+    @Query(value = "DELETE FROM product WHERE product.product_id = ?1", nativeQuery = true)
+    void deleteByProductId(Long product_id);
 }

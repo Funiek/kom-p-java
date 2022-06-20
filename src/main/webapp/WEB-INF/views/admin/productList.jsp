@@ -66,9 +66,9 @@
                 ${product.visible}
             </td>
             <td>
-                <a href="#">Edytuj</a> |
+                <a href="productEdit/${product.productId}">Edytuj</a> |
                 <a href="/product/${product.productId}">Szczegóły</a> |
-                <a href="#">Usuń</a>
+                <a href="productDelete/${product.productId}">Usuń</a>
             </td>
         </tr>
         </c:forEach>

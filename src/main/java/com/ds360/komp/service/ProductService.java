@@ -36,7 +36,7 @@ public class ProductService {
     }
 
     public void delete(Long id) {
-        productRepository.deleteById(id);
+        productRepository.deleteByProductId(id);
     }
 
     public List<Product> list(Long count) {

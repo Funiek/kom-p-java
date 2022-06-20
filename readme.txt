@@ -14,7 +14,7 @@ Lista funkcjonalności:
     - Wyświetlenie panelu użytkownika
     - Panel administracyjny ( dostęp administrator lub moderator )
     - Przeglądanie produktów z poziomu panelu administratora ( dostęp administrator lub moderator )
-    - Dodawanie produktów z poziomu panelu administratora ( dostęp administrator lub moderator )
+    - Dodawanie/Usuwanie/Edycja produktów z poziomu panelu administratora ( dostęp administrator lub moderator )
     - Przeglądanie kont z poziomu panelu administratora ( dostęp administrator lub moderator )
     - Dodawanie kont z poziomu panelu administratora ( dostęp administrator )
     - Wyświetlanie zamówień z poziomu panelu administratora ( dostęp administrator lub moderator )
