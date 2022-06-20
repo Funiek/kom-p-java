@@ -37,7 +37,7 @@ public class Account {
     private String address;
     @ToString.Include
     @Column(name = "role")
-    private String role;
+    private String role = "Uzytkownik";
 
 
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
