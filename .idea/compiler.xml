@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KOMP" target="1.8" />
+      <module name="KOMP" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

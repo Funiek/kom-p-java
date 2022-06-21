@@ -1,34 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-
     <persistence-unit name="KompDB">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.ds360.komp.model.Product</class>
-        <class>com.ds360.komp.model.Account</class>
-        <class>com.ds360.komp.model.Category</class>
-        <class>com.ds360.komp.model.PlacedOrder</class>
-        <class>com.ds360.komp.model.OrderProduct</class>
-        <class>com.ds360.komp.model.Warehouse</class>
-        <class>com.ds360.komp.model.WarehouseProduct</class>
-        <class>com.ds360.komp.model.OrderProductKey</class>
-        <class>com.ds360.komp.model.WarehouseProductKey</class>
+        <jta-data-source>jdbc/__default</jta-data-source>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/KompDB"/>
-            <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="admin"/>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgresPlusDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/KompDB"/>
-            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-            <property name="hibernate.connection.username" value="postgres"/>
-            <property name="hibernate.connection.password" value="admin"/>
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/kompdb-drop.sql"/>
+            <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/kompdb.sql"/>
         </properties>
     </persistence-unit>
-
 </persistence>

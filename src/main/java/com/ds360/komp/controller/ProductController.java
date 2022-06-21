@@ -31,7 +31,7 @@ ProductController {
 
         Product product = productService.get(Long.valueOf(id));
 
-        return new ModelAndView("product/details","cartProduct",new CartProduct(product,0));
+        return new ModelAndView("product/details","cartProduct", new CartProduct(product,0));
     }
 
     @PostMapping
@@ -59,4 +59,5 @@ ProductController {
         session.setAttribute("cart",cart);
         return "redirect:/";
     }
+    
 }

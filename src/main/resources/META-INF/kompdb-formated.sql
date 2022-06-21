@@ -15,23 +15,25 @@ CREATE TABLE category(
 
 CREATE TABLE placed_order(
     order_id SERIAL PRIMARY KEY,
-    account_id int NULL REFERENCES account (account_id),
+    account_id int NULL,
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
     address VARCHAR NOT NULL,
     delivery VARCHAR NOT NULL,
     payment VARCHAR NOT NULL,
-    amount NUMERIC(10,2) NOT NULL
+    amount NUMERIC(10,2) NOT NULL,
+    CONSTRAINT placed_order_account_fk FOREIGN KEY (account_id) REFERENCES account (account_id)
 );
 
 CREATE TABLE product(
     product_id SERIAL PRIMARY KEY,
-    category_id int NULL REFERENCES category (category_id),
+    category_id int NULL,
     price NUMERIC(10,2) NOT NULL,
     sku VARCHAR NOT NULL,
     title VARCHAR NOT NULL,
     visible BOOLEAN NOT NULL,
-    promo BOOLEAN NOT NULL
+    promo BOOLEAN NOT NULL,
+    CONSTRAINT product_category_fk FOREIGN KEY (category_id) REFERENCES category (category_id)
 );
 
 CREATE TABLE warehouse(
@@ -41,17 +43,21 @@ CREATE TABLE warehouse(
 );
 
 CREATE TABLE order_product(
-    order_id INT REFERENCES placed_order (order_id),
-    product_id INT REFERENCES product (product_id),
+    order_id INT,
+    product_id INT,
     qty SMALLINT NOT NULL,
-    CONSTRAINT order_product_pk PRIMARY KEY (order_id, product_id)
+    CONSTRAINT order_product_pk PRIMARY KEY (order_id, product_id),
+    CONSTRAINT order_product_placed_order_fk FOREIGN KEY (order_id) REFERENCES placed_order (order_id),
+    CONSTRAINT order_product_product_fk FOREIGN KEY (product_id) REFERENCES product (product_id)
 );
 
 CREATE TABLE warehouse_product(
-    warehouse_id INT REFERENCES warehouse (warehouse_id),
-    product_id INT REFERENCES product (product_id),
+    warehouse_id INT,
+    product_id INT,
     qty SMALLINT NOT NULL,
-    CONSTRAINT warehouse_product_pk PRIMARY KEY (warehouse_id, product_id)
+    CONSTRAINT warehouse_product_pk PRIMARY KEY (warehouse_id, product_id),
+    CONSTRAINT warehouse_product_warehouse_fk FOREIGN KEY (warehouse_id) REFERENCES warehouse (warehouse_id),
+    CONSTRAINT warehouse_product_product_fk FOREIGN KEY (product_id) REFERENCES product (product_id)
 );
 
 INSERT INTO category (title) VALUES ('Procesory');

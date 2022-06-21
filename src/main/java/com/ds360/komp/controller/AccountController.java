@@ -1,10 +1,8 @@
 package com.ds360.komp.controller;
 
 import com.ds360.komp.model.Account;
-import com.ds360.komp.model.CartProduct;
 import com.ds360.komp.model.OrderProduct;
 import com.ds360.komp.model.PlacedOrder;
-import com.ds360.komp.repository.AccountRepository;
 import com.ds360.komp.service.AccountService;
 import com.ds360.komp.service.OrderProductService;
 import com.ds360.komp.service.PlacedOrderService;
@@ -18,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/account")
@@ -117,7 +113,7 @@ public class AccountController {
 
         for(OrderProduct orderProduct: orderProductList) {
             for(PlacedOrder placedOrder: placedOrderList) {
-                if(placedOrder.getOrderId()==orderProduct.getPlacedOrder().getOrderId()) accountOrderProductList.add(orderProduct);
+                if(placedOrder.getOrderId()==orderProduct.getOrder().getOrderId()) accountOrderProductList.add(orderProduct);
             }
         }
 

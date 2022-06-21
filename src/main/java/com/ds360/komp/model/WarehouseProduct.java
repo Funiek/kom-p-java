@@ -3,7 +3,6 @@ package com.ds360.komp.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11,17 +10,16 @@ import java.util.Objects;
 @Setter
 @Entity
 @Table(name = "warehouse_product", schema = "public", catalog = "KompDB")
+@IdClass(WarehouseProductKey.class)
 public class WarehouseProduct {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EmbeddedId
-    private WarehouseProductKey warehouseProductId;
+    
+    @Id
     @ManyToOne
-    @MapsId("warehouseId")
     @JoinColumn(name = "warehouse_id")
     private Warehouse warehouse;
 
+    @Id
     @ManyToOne
-    @MapsId("productId")
     @JoinColumn(name = "product_id")
     private Product product;
 

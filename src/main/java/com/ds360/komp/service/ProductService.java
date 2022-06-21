@@ -1,18 +1,11 @@
 package com.ds360.komp.service;
 
-import com.ds360.config.JpaConfig;
 import com.ds360.komp.model.Product;
 import com.ds360.komp.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,7 +20,7 @@ public class ProductService {
     }
 
     public List<Product> listAll() {
-        return (List<Product>) productRepository.findAll();
+        return productRepository.findAll();
     }
 
     public Product get(Long id) {

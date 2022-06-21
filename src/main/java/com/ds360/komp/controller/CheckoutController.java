@@ -2,7 +2,6 @@ package com.ds360.komp.controller;
 
 import com.ds360.komp.model.*;
 import com.ds360.komp.repository.OrderProductRepository;
-import com.ds360.komp.repository.PlacedOrderRepository;
 import com.ds360.komp.service.AccountService;
 import com.ds360.komp.service.PlacedOrderService;
 import lombok.RequiredArgsConstructor;
@@ -112,7 +111,7 @@ public class CheckoutController {
             orderProduct = new OrderProduct();
             PlacedOrder internalOrder = placedOrderService.findLast();
 
-            orderProduct.setPlacedOrder(internalOrder);
+            orderProduct.setOrder(internalOrder);
             orderProduct.setProduct(cartProduct.getProduct());
             orderProduct.setQty((short) cartProduct.getQty());
 

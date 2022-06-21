@@ -1,8 +1,6 @@
 package com.ds360.komp.service;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 public class ProductServiceTest {
 
