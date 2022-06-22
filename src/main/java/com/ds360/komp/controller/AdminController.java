@@ -8,6 +8,8 @@ import com.ds360.komp.repository.OrderProductRepository;
 import com.ds360.komp.service.AccountService;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,7 @@ import java.util.Optional;
 @RequestMapping(value = "/admin")
 @RequiredArgsConstructor
 public class AdminController {
+    private final Logger log = LogManager.getLogger(getClass());
     final CategoryRepository categoryRepository;
     final AccountService accountService;
     final OrderProductRepository orderProductRepository;
@@ -59,6 +62,8 @@ public class AdminController {
         category.ifPresent(product::setCategory);
 
         productService.save(product);
+
+        log.debug("Produkt stworzony: " + product.getSku());
         return "admin/index";
     }
     @GetMapping("/productDelete/{id}")
@@ -87,8 +92,8 @@ public class AdminController {
         Optional<Category> category = categoryRepository.findById(product.getCategory().getCategoryId());
         category.ifPresent(product::setCategory);
 
-
         productService.save(product);
+        log.debug("Produkt zedytowany: " + product.getSku());
         return productList();
     }
 
@@ -109,6 +114,7 @@ public class AdminController {
     public String accountCreate(@ModelAttribute Account account) {
         account.setPlacedOrders(null);
         accountService.save(account);
+        log.debug("Konto stworzone: " + account.getLogin());
         return "admin/index";
     }
 

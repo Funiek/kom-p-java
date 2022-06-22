@@ -4,6 +4,8 @@ import com.ds360.komp.model.CartProduct;
 import com.ds360.komp.model.Product;
 import com.ds360.komp.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +27,7 @@ import java.util.Objects;
 public class
 ProductController {
     final ProductService productService;
-
+    private final Logger log = LogManager.getLogger(getClass());
     @GetMapping("/{id}")
     public ModelAndView details(@PathVariable String id) {
 
@@ -57,6 +59,8 @@ ProductController {
         cart.add(cartProduct);
 
         session.setAttribute("cart",cart);
+
+        log.debug("Produkt dodany do koszyka: " + product.getSku());
         return "redirect:/";
     }
 }

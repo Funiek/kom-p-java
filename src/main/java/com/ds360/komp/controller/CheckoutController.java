@@ -6,6 +6,8 @@ import com.ds360.komp.repository.PlacedOrderRepository;
 import com.ds360.komp.service.AccountService;
 import com.ds360.komp.service.PlacedOrderService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +26,7 @@ import java.util.List;
 @RequestMapping(value = "/checkout")
 @RequiredArgsConstructor
 public class CheckoutController {
+    private final Logger log = LogManager.getLogger(getClass());
     final AccountService accountService;
     final PlacedOrderService placedOrderService;
     final OrderProductRepository orderProductRepository;
@@ -119,6 +122,7 @@ public class CheckoutController {
             orderProductRepository.save(orderProduct);
         }
 
+        log.debug("Zamowienie stworzone: " + placedOrderService.findLast().getOrderId());
         return "checkout/thanks";
     }
 

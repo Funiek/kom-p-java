@@ -9,6 +9,8 @@ import com.ds360.komp.service.AccountService;
 import com.ds360.komp.service.OrderProductService;
 import com.ds360.komp.service.PlacedOrderService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +27,7 @@ import java.util.Optional;
 @RequestMapping(value = "/account")
 @RequiredArgsConstructor
 public class AccountController {
+    private final Logger log = LogManager.getLogger(getClass());
     final AccountService accountService;
 
     final OrderProductService orderProductService;
@@ -49,6 +52,7 @@ public class AccountController {
             session.setAttribute("logged","true");
             if(accountFromRepo.getRole().equals("Administrator")) session.setAttribute("administrator","true");
             if(accountFromRepo.getRole().equals("Moderator")) session.setAttribute("moderator","true");
+            log.debug("Użytkownik zalogowany: " + accountFromRepo.getLogin() );
         }
 
         return "redirect:/";
@@ -63,6 +67,7 @@ public class AccountController {
     @Transactional
     public String signUp(@ModelAttribute Account account) {
         account.setRole("Uzytkownik");
+        log.debug("Użytkownik stworzony: " + account.getLogin());
         accountService.save(account);
         return "redirect:/";
     }
@@ -98,7 +103,6 @@ public class AccountController {
         return new ModelAndView("/account/details","account",account);
     }
 
-    //FIXME nie dziala
     @GetMapping("/order/{id}")
     @Transactional
     public ModelAndView details(@PathVariable String id, HttpServletRequest request){
