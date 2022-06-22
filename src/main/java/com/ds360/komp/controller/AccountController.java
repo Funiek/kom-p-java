@@ -32,7 +32,6 @@ public class AccountController {
     }
 
     @PostMapping("/signIn")
-    @Transactional
     public String signIn(@ModelAttribute Account account, HttpServletRequest request) {
 
         HttpSession session = request.getSession();
@@ -56,7 +55,6 @@ public class AccountController {
     }
 
     @PostMapping("/signUp")
-    @Transactional
     public String signUp(@ModelAttribute Account account) {
         account.setRole("Uzytkownik");
         accountService.save(account);
@@ -77,7 +75,6 @@ public class AccountController {
     }
 
     @GetMapping("/details")
-    @Transactional
     public ModelAndView details(HttpServletRequest request){
         HttpSession session = request.getSession();
 
@@ -96,7 +93,6 @@ public class AccountController {
 
     //FIXME nie dziala
     @GetMapping("/order/{id}")
-    @Transactional
     public ModelAndView details(@PathVariable String id, HttpServletRequest request){
         HttpSession session = request.getSession();
 

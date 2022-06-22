@@ -32,25 +32,21 @@ public class AdminController {
     }
 
     @GetMapping("/orderList")
-    @Transactional
     public ModelAndView orderList() {
         return new ModelAndView("admin/orderList","orderProductList",orderProductRepository.findAll());
     }
 
     @GetMapping("/productList")
-    @Transactional
     public ModelAndView productList() {
         return new ModelAndView("admin/productList","productList",productService.listAll());
     }
 
     @GetMapping("/productCreate")
-    @Transactional
     public ModelAndView productCreate() {
         return new ModelAndView("admin/productCreate","product",new Product());
     }
 
     @PostMapping("/productCreate")
-    @Transactional
     public String productCreate(@ModelAttribute Product product) {
         product.setWarehouseProducts(null);
         product.setOrderProductList(null);
@@ -62,7 +58,6 @@ public class AdminController {
         return "admin/index";
     }
     @GetMapping("/productDelete/{id}")
-    @Transactional
     public ModelAndView productDelete(@PathVariable String id, HttpServletRequest request) {
         HttpSession session = request.getSession();
         if ((session.getAttribute("administrator")=="true" || session.getAttribute("moderator")=="true")&&productService.get(Long.valueOf(id)).getOrderProductList().isEmpty()) {
@@ -72,13 +67,11 @@ public class AdminController {
     }
 
     @GetMapping("/productEdit/{id}")
-    @Transactional
     public ModelAndView productEdit(@PathVariable String id) {
         return new ModelAndView("admin/productEdit","product",productService.get(Long.valueOf(id)));
     }
 
     @PostMapping("/productEdit")
-    @Transactional
     public ModelAndView productEdit(@ModelAttribute Product product) {
         Product oldProduct = productService.get(product.getProductId());
         product.setWarehouseProducts(null);
@@ -93,19 +86,16 @@ public class AdminController {
     }
 
     @GetMapping("/accountList")
-    @Transactional
     public ModelAndView accountList() {
         return new ModelAndView("admin/accountList","accountList",accountService.listAll());
     }
 
     @GetMapping("/accountCreate")
-    @Transactional
     public ModelAndView accountCreate() {
         return new ModelAndView("admin/accountCreate","account",new Account());
     }
 
     @PostMapping("/accountCreate")
-    @Transactional
     public String accountCreate(@ModelAttribute Account account) {
         account.setPlacedOrders(null);
         accountService.save(account);

@@ -32,7 +32,6 @@ public class CheckoutController {
     }
 
     @PostMapping("/describeBuyer")
-    @Transactional
     public ModelAndView describeBuyer(@ModelAttribute Account account, HttpServletRequest request) {
 
         HttpSession session = request.getSession();

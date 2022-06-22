@@ -20,7 +20,6 @@ import java.util.Objects;
 public class CategoryController {
     final ProductService productService;
     @GetMapping("/{id}")
-    @Transactional
     public ModelAndView category(@PathVariable String id) {
         List<Product> productList = null;
 
