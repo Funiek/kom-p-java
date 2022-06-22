@@ -11,7 +11,7 @@ import java.util.Objects;
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "order_product", schema = "public", catalog = "KompDB")
+@Table(name = "order_product", schema = "public")
 @IdClass(OrderProductKey.class)
 public class OrderProduct {
     

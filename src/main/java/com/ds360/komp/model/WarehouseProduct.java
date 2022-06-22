@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "warehouse_product", schema = "public", catalog = "KompDB")
+@Table(name = "warehouse_product", schema = "public")
 @IdClass(WarehouseProductKey.class)
 public class WarehouseProduct {
     
