@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "SELECT * FROM Product LIMIT ?1", nativeQuery = true)
     List<Product> findRowsLimit(Long count);

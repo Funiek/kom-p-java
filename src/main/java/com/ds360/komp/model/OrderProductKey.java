@@ -5,33 +5,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
+//@Embeddable
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderProductKey implements Serializable {
-    @Column(name = "order_id")
-    Long orderId;
+    
+    private long order;
 
-    @Column(name = "product_id")
-    Long productId;
-
+    private long product;
+    
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         OrderProductKey that = (OrderProductKey) o;
-        return orderId.equals(that.orderId) && productId.equals(that.productId);
+        return getOrder() == that.getOrder() && getProduct() == that.getProduct();
     }
-
+    
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, productId);
+        return Objects.hash(order, product);
     }
 }

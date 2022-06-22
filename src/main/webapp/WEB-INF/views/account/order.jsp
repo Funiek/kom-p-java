@@ -22,7 +22,7 @@
 <body>
 <%@include file="../header.jsp" %>
 <div class="body-container">
-  <h1>Zamówienie - ${orderProductList.get(0).placedOrder.orderId}</h1>
+  <h1>Zamówienie - ${orderProductList.get(0).order.orderId}</h1>
   <hr>
   <table>
     <thead>
