@@ -117,7 +117,7 @@ public class AccountController {
 
         for(OrderProduct orderProduct: orderProductList) {
             for(PlacedOrder placedOrder: placedOrderList) {
-                if(placedOrder.getOrderId()==orderProduct.getPlacedOrder().getOrderId()) accountOrderProductList.add(orderProduct);
+                if(placedOrder.getOrderId()==orderProduct.getOrder().getOrderId()) accountOrderProductList.add(orderProduct);
             }
         }
 

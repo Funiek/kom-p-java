@@ -50,7 +50,7 @@ public class PlacedOrder {
     @ToString.Exclude
     private Account account;
 
-    @OneToMany(mappedBy = "placedOrder",
+    @OneToMany(mappedBy = "order",
             fetch = FetchType.EAGER)
     private List<OrderProduct> orderProductList = new ArrayList<>();
 

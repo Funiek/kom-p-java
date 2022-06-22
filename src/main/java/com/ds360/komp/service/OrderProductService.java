@@ -16,7 +16,7 @@ public class OrderProductService {
     final OrderProductRepository orderProductRepository;
 
     public List<OrderProduct> findByOrder(Long order_id) {
-        return orderProductRepository.findByOrder(order_id);
+        return orderProductRepository.findByOrderOrderId(order_id);
     }
     public List<OrderProduct> listAll() {
         return orderProductRepository.findAll();

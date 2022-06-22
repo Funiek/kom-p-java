@@ -29,7 +29,7 @@
         <c:forEach items="${orderProductList}" var="item">
             <tr>
                 <td>
-                        ${item.placedOrder.orderId}
+                        ${item.order.orderId}
                 </td>
                 <td>
                         ${item.product.sku}

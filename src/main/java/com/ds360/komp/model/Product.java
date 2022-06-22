@@ -1,7 +1,6 @@
 package com.ds360.komp.model;
 
 import lombok.*;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true)
-@Table(name = "Product")
+@Table(name = "product")
 @Entity
 public class Product {
     @ToString.Include

@@ -112,7 +112,7 @@ public class CheckoutController {
             orderProduct = new OrderProduct();
             PlacedOrder internalOrder = placedOrderService.findLast();
 
-            orderProduct.setPlacedOrder(internalOrder);
+            orderProduct.setOrder(internalOrder);
             orderProduct.setProduct(cartProduct.getProduct());
             orderProduct.setQty((short) cartProduct.getQty());
 
