@@ -3,8 +3,8 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="KompDB">
-        <non-jta-data-source>jdbc/__default</non-jta-data-source>
+    <persistence-unit name="KompDB" transaction-type="JTA">
+        <jta-data-source>jdbc/__default</jta-data-source>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
             <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/kompdb-drop.sql"/>
